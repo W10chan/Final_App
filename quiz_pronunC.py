@@ -3,8 +3,8 @@ import tkinter as tk
 
 def speech_recognition_with_microphone():
     # Azure Cognitive Services Speechリソースのキーとエンドポイント
-    speech_key = "YOUR_SPEECH_KEY"
-    service_region = "YOUR_SERVICE_REGION"
+    speech_key = #"dc618b934d984348b8e4813047d851d4"
+    service_region = #"japaneast"
 
 
     # スピーチ認識用の設定
