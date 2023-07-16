@@ -1,4 +1,5 @@
 import azure.cognitiveservices.speech as speechsdk
+import tkinter as tk
 
 def speech_recognition_with_microphone():
     # Azure Cognitive Services Speechリソースのキーとエンドポイント
@@ -24,3 +25,19 @@ def speech_recognition_with_microphone():
 
 if __name__ == "__main__":
     speech_recognition_with_microphone()
+
+#ウィンドウ作成
+window = tk.Tk()
+window.title("発音&単語クイズ")
+window.geometry("300x200")
+
+#ラベル作成
+result_label = tk.Label(window, text="結果がここに表示されます", font=("Arial", 12))
+result_label.pack(pady=20)
+
+# ボタンを作成
+button = tk.Button(window, text="音声認識開始", font=("Arial", 12), command=speech_recognition_with_microphone)
+button.pack()
+
+# ウィンドウを表示
+window.mainloop()
