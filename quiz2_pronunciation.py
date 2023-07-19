@@ -2,7 +2,6 @@ import tkinter as tk
 import csv
 from random import sample
 import azure.cognitiveservices.speech as speechsdk
-import string
 
 class Application(tk.Frame):
     def __init__(self, master):
@@ -63,16 +62,15 @@ class Application(tk.Frame):
         self.BtnNext = tk.Button(self.master, text="次の単語", command=self.Next, width=10)
         self.BtnNext.place(x=215, y=148)
 
-    def start_speech(self):
-        self.speech_recognizer.start_continuous_recognition()
-
     def process_speech(self, event):
         if event.result.reason == speechsdk.ResultReason.RecognizedSpeech:
             recognized_text = event.result.text
             recognized_text = event.result.text.lower()  # テキストを小文字に変換
-            recognized_text = recognized_text.translate(str.maketrans(".", ""))  #ピリオドを削除
+            recognized_text = recognized_text.replace(".", "")  # ピリオドを削除
             self.text2.insert(tk.END, recognized_text + "\n")
 
+    def start_speech(self):
+        self.speech_recognizer.start_continuous_recognition()
 
     def Judge(self, event=None):
         self.total_questions += 1

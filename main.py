@@ -5,10 +5,13 @@ import os
 import subprocess
 
 def open_second_file():
-    subprocess.Popen(["python","sample_quize_yaku.py"])
+    subprocess.Popen(["python","quiz1_wayaku.py"])
 
 def open_third_file():
     subprocess.Popen(["python","add_word.py"])
+
+def open_forth_file():
+    subprocess.Popen(["python","quiz2_pronunciation.py"])
 
 def text_to_speech(text, lang='en'):
     tts = gTTS(text=text, lang=lang)
@@ -66,15 +69,17 @@ label_result.pack(pady=10)
 button_speak = tk.Button(window, text="発音", command=lambda: text_to_speech(entry_search.get()))
 button_speak.pack()
 
-#英→日テストプログラム起動
-button_test1 = tk.Button(window, text="英→日クイズ", command=open_second_file)
-button_test1.pack(side="right")
+#和訳クイズプログラム起動
+button_quiz1 = tk.Button(window, text="和訳クイズ", command=open_second_file)
+button_quiz1.pack(side="right")
 
-#追加
-button_test1 = tk.Button(window, text="追加", command=open_third_file)
-button_test1.pack(side="left")
+#追加プログラムの起動
+button_add_word = tk.Button(window, text="追加", command=open_third_file)
+button_add_word.pack(side="left")
 
-
+#発音クイズプログラムの起動
+button_quiz2 = tk.Button(window, text="発音クイズ", command=open_forth_file)
+button_quiz2.pack(side="left")
 
 window.mainloop()
 
